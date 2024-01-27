@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>First jQuary Mobile App</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- jQuary css /js files -->
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+        <!-- Local Css / js file -->
+        <link rel="stylesheet" href="home.css"/>
+        <script src="DroneLogs.js"></script>
+    </head>
+    <body>
+        <!-- Drone List Page -->
+        <div data-role="page"  id="home">
+            <div data-role="header">
+                <h1>Drone Logger</h1>
+            </div>
+            
+            <div data-role="main" class="ui-content">
+                <ul data-role="listview">
+                    <li><a href="#page" data-transition="slide" class="day">Day <span>1</span></a></li>
+                    <li><a href="#page" data-transition="slide" class="day">Day <span>2</span></a></li>
+                    <li><a href="#page" data-transition="slide" class="day">Day <span>3</span></a></li>
+                    <li><a href="#page" data-transition="slide" class="day">Day <span>4</span></a></li>
+                    <li><a href="#page" data-transition="slide" class="day">Day <span>5</span></a></li>
+                 </ul>
+            </div>
+            
+            <div data-role="footer">
+                <h2>Developed by Rahul Patalia</h2>
+            </div>
+        </div>
+
+        <!-- Dron Entry Page -->
+        <div data-role="page" id="page">
+            <div data-role="header" id="page">
+                <a id="clear" data-role="button" data-inline="true">Clear</a>
+                <h1 class="titleheader">Day <span></span></h1>
+                <a href="#showLog" class="showLog" data-role="button" data-inline="true">Show Log</a>
+            </div>
+            
+            <div data-role="main" class="ui-content">
+                <div data-role="fieldcontain">
+                    <label for="serial">Serial #:</label>
+                    <input type="number" id="serial" placeholder="numeric" />
+        
+                    <label for="pilot">Pilot:</label>
+                    <input type="text" id="pilot" placeholder="Pilot Name" />
+        
+                    <label for="key">Key:</label>
+                    <input type="text" id="key" placeholder="alphanumeric" />
+        
+                    <label for="contract">Contract #:</label>
+                    <input type="number" id="contract" placeholder="numeric" />
+        
+                    <label for="category">Category:</label>
+                    <select id="category">
+                        <option></option>
+                        <option>Civil</option>
+                        <option>Government</option>
+                        <option>Military</option>
+                    </select>
+                </div>
+            
+                <div data-inline="true">
+                    <button id="saveLog">Save Log Entry</button>
+                </div>
+            </div>
+            
+            <div data-role="footer">
+                <a id="prevButton" data-role="button" data-icon="arrow-l" style="margin-left: 3%">Previous</a>
+                <a href="#home" data-role="button" data-icon="home" >Home</a>
+                <a id="nextButton" data-role="button" data-icon="arrow-r"  >Next</a>
+            </div>
+        </div>
+
+        <!-- Log Page -->
+        <div data-role="page" id="showLog">
+            <div data-role="header" id="page">
+                <a id="clear" data-role="button" data-icon="plus" data-inline="true">Clear</a>
+                <h1 class="titleheader">Day <span></span></h1>
+                <a id="send" href="#dialog" data-role="button" data-icon="home" data-inline="true" >Send...</a>
+            </div>
+            
+            <div data-role="main" class="ui-content">
+                <h1>Drone log entires:</h1>
+                <p>Date, latitude, longitude, serial#, pilot, key, contract#, category</p>
+                <ul data-role="listview" class="logList"></ul>                
+            </div>
+            
+            <div data-role="footer" data-position="fixed">
+                <a href="#page" id="back" data-role="button" data-icon="delete" data-inline="true" style="margin-left: 5%">Back</a>
+            </div>
+        </div>
+
+        <!-- Dialog Box -->
+        <div data-role="page" data-dialog="true" id="dialog">
+            <div data-role="header">
+                <h1>Send logs?</h1>
+            </div>
+
+            <div data-role="main" class="ui-content">
+                <p>Do you want to send all logs, this has the effect of deleting all logs?</p>
+                <a id="cancel" data-role="button" data-inline="true">Cancel</a>
+                <a id="yes" data-role="button" data-inline="true">Yes</a>
+            </div>
+        </div>
+    </body>
+</html>
